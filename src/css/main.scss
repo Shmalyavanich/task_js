@@ -1,0 +1,202 @@
+body{
+	margin: 0;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 16px;
+}
+.container{
+	margin: 0 auto;
+	width: 1170px;
+	max-width: 100%;
+}
+.button{
+	display: inline-block;
+	border-radius: 5px;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: none;
+	height: 24px;
+	line-height: 22px;
+	padding: 0 30px 1px;
+	cursor: pointer;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(208,217,224,1) 30%,rgba(183,196,206,1) 100%);
+	font-weight: bold;
+	box-shadow: 0px 3px 6px -2px rgba(0,0,0,0.3);
+}
+.button:not([disabled]):hover{
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(188,200,209,1) 30%,rgba(160,174,186,1) 100%);
+}
+.button[disabled]{
+	cursor: default;
+}
+.phones{
+	background: linear-gradient(to bottom, rgba(130,171,189,1) 0%,rgba(100,133,149,1) 100%);
+	height: 590px;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.phones__table{
+	width: 60%;
+	float: left;
+}
+.phones__table-container{
+	overflow-y: auto;
+	height: 556px;
+	max-height: 95%;
+}
+.phones__table-head{
+	display: flex;
+	justify-content: space-between;
+	font-weight: bold;
+	background: #f6f6f6;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,0.3), inset 0px 10px 10px -10px rgba(0,0,0,0.3);
+}
+.phones__table-item{
+	display: inline-block;
+	vertical-align: top;
+	width: 20%;
+	display: flex;
+	float: left;
+	align-items: center;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	min-height: 30px;
+}
+.phones__table-head{
+	.phones__table-item{
+		text-align: center;
+		justify-content: center;
+	}
+}
+.phones__table-item + .phones__table-item{
+	border-left: 1px solid #ccc;
+}
+.phones__table-body{
+	background: white;
+	border: 1px solid #ccc;
+	max-height: 100%;
+}
+.phones__table-row{
+	display: flex;
+	justify-content: space-between;
+	transition: background 0.3s ease;
+}
+.phones__table-row + .phones__table-row{
+	border-top: 1px solid #ccc;
+}
+.phones__table-row:nth-child(odd){
+	background: #f6f6f6;
+}
+.phones__table-row.filled{
+	cursor: pointer;
+}
+.phones__table-row.filled:not(.active):hover{
+	background: #dcf5fd;
+}
+.phones__table-row.active{
+	background: #9ae8ff;
+}
+.phones__table-buttons{
+	margin-top: 10px;
+}
+.phones__loader{
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.7);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+.phones__loader.hidden{
+	z-index: -1;
+	visibility: hidden;
+	opacity: 0;
+}
+
+@keyframes spin-loader{
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+.phones__loader svg{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50px;
+	height: 50px;
+	margin: -25px 0 0 -25px;
+	border-radius: 100%;
+	animation-name: spin-loader;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+	background-size: cover;
+}
+.phones__detail{
+	float: left;
+	width: 40%;
+	position: relative;
+	padding: 10px 30px 0 22px;
+	box-sizing: border-box;
+}
+.phones__detail::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 10px;
+	width: 2px;
+	background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0.5) 100%);
+}
+.phones__detail-title{
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+.phones__detail-item{
+	display: flex;
+	justify-content: start;;
+}
+.phones__detail-label{
+	width: 55%;
+	text-align: right;
+	padding: 4px 10px 4px 0;
+	box-sizing: border-box;
+	float: left;
+}
+.phones__detail-field{
+	float: left;
+	box-sizing: border-box;
+	border: 1px solid #aaa;
+}
+.phones__detail-field:not([type="checkbox"]){
+	width: 45%;
+	height: 24px;
+	padding: 2px 5px;
+}
+.phones__detail-field[type="checkbox"]{
+	width: 15px;
+	height: 15px;
+	align-self: center;
+	margin: 0;
+	cursor: pointer;
+	padding: 0;
+}
+.phones__detail-item_buttons{
+	margin-top: 21px;
+}
